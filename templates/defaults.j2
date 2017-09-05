@@ -1,6 +1,10 @@
 # {{ ansible_managed }}
 export GO_SERVER={{ gocd_agent.server }}
+{% if gocd_agent.ssl %}
+export GO_SERVER_SSL_PORT={{ gocd_agent.port }}
+{% else %}
 export GO_SERVER_PORT={{ gocd_agent.port }}
+{% endif %}
 export GO_AGENT_SYSTEM_PROPERTIES="{{ gocd_agent.start_opts }}"
 export JAVA_HOME={{ gocd_agent.java_home }}
 export AGENT_WORK_DIR={{ gocd_agent.user_dir }}/work/${SERVICE_NAME}

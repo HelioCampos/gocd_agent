@@ -13,6 +13,7 @@ gocd_agent:
   user_dir: /home/go
   user: go
   version: 16.*
+  ssl: false
 
   auto_register:
     key: ~
